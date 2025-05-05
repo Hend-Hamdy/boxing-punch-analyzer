@@ -1,3 +1,14 @@
+import sys, subprocess
+
+# 1) نشيل النسخة العاديّة لو موجودة
+subprocess.run([sys.executable, "-m", "pip", "uninstall", "-y", "opencv-python"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+# 2) نركّب النسخة headless اللي مش محتاجة libGL
+subprocess.run([sys.executable, "-m", "pip", "install", "opencv-python-headless"], check=True)
+
+# بعد كده نستورد cv2 بأمان
+import cv2
+
 import streamlit as st
 import tempfile
 import os
