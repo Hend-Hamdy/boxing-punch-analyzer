@@ -54,7 +54,7 @@ if ready and st.button("▶️ Process Video"):
 
     # Load model
     status.text("Loading YOLOv8 model…")
-    model = YOLO('/content/drive/MyDrive/boxing_checkpoints/final_models/best.pt')
+    model = YOLO('weights/best.pt')
     progress.progress(10)
 
     # Prepare video writer
