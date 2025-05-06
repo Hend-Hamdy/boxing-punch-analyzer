@@ -163,7 +163,7 @@ if ready and st.button("▶️ Process Video"):
         writer.write(frame)
         frame_idx += 1
 
-      cap.release()
+    cap.release()
     writer.release()
 
     # ننسخ الفيديو المحفوظ إلى ملف جديد مؤقت عشان نقدر نعرضه
