@@ -163,11 +163,19 @@ if ready and st.button("▶️ Process Video"):
         writer.write(frame)
         frame_idx += 1
 
-    cap.release()
+      cap.release()
     writer.release()
 
+    # ننسخ الفيديو المحفوظ إلى ملف جديد مؤقت عشان نقدر نعرضه
+    with open(out_tmp.name, "rb") as f:
+        video_bytes = f.read()
+
+    display_video = tempfile.NamedTemporaryFile(delete=False, suffix=".mp4")
+    with open(display_video.name, "wb") as f:
+        f.write(video_bytes)
+
     # Show processed video with in-video stats panel
-    st.video(out_tmp.name)
+    st.video(display_video.name)
 
     # Show table of all records below
     if records:
@@ -178,7 +186,7 @@ if ready and st.button("▶️ Process Video"):
 
     st.download_button(
         "⬇️ Download Processed Video",
-        data=open(out_tmp.name, "rb").read(),
+        data=open(display_video.name, "rb").read(),
         file_name="processed_boxing.mp4",
         mime="video/mp4"
     )
