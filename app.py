@@ -18,7 +18,7 @@ def draw_stats_panel(frame, records, W):
         cv2.putText(frame, title, (col_x[i], y_h),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 2)
     y0 = y_h + 30
-    for rec in records[-5:]:
+    for rec in records[-3:]:
         for i, key in enumerate(cols):
             cv2.putText(frame, rec[key], (col_x[i], y0),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
