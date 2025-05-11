@@ -8,7 +8,7 @@ from ultralytics import YOLO
 
 # ——— Function to draw stats panel on each frame ———
 def draw_stats_panel(frame, records, W):
-    pw, ph = int(W * 0.8), 180
+    pw, ph = int(W * 0.8), 100
     px, py = (W - pw) // 2, 0
     cv2.rectangle(frame, (px, py), (px + pw, py + ph), (0, 128, 0), thickness=cv2.FILLED)
     cols = ['Time', 'Side', 'Type', 'Target', 'Status', 'Quality']
